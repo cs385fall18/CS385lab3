@@ -33,6 +33,7 @@ func (r Registration) ToJSON() string {
 }
 
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
+	/*
         if r.Method == http.MethodPost {
                 body, err := ioutil.ReadAll(r.Body)
                 if err != nil {
@@ -69,4 +70,5 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
                 w.WriteHeader(http.StatusBadRequest)
                 w.Write([]byte("Unsupported Method."))
         }
+	*/
 }
