@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 )
@@ -12,12 +13,12 @@ func main() {
 	//models.InitDB(dbConn)
 	fmt.Println("Hello World")
 	http.HandleFunc("/", RegisterHandler)
-
+	log.Fatal(http.ListenAndServe(":8080", nil))
 	//http.ListenAndServe(port(), nil)
-	fs := http.FileServer(http.Dir("static/"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
-	http.ListenAndServe(":3001", nil)
-	fmt.Println("got here")
+	//fs := http.FileServer(http.Dir("static/"))
+	//http.Handle("/static/", http.StripPrefix("/static/", fs))
+	//http.ListenAndServe(":3001", nil)
+	//fmt.Println("got here")
 }
 
 func port() string {
@@ -38,6 +39,7 @@ func (r Registration) ToJSON() string {
 */
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("doesn't print")
+	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
 	/*
         if r.Method == http.MethodPost {
                 body, err := ioutil.ReadAll(r.Body)
