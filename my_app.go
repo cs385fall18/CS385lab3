@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -12,7 +12,7 @@ func main() {
 	// Connect to the database
 	//dbConn := fmt.Sprintf("minibank:minibank@tcp(mysql)/minibank")
 	//models.InitDB(dbConn)
-	fmt.Println("Hello World")
+	//fmt.Println("Hello World")
 	http.HandleFunc("/", RegisterHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 	//http.ListenAndServe(port(), nil)
@@ -39,7 +39,7 @@ func (r Registration) ToJSON() string {
 }
 */
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("doesn't print")
+	//fmt.Println("doesn't print")
 	//fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
 	name, err := os.Hostname()
 	//resp, err := http.PostForm("http://example.com/form",
