@@ -15,7 +15,7 @@ func main() {
 
 	//http.ListenAndServe(port(), nil)
 	fs := http.FileServer(http.Dir("static/"))
-	http.Handle("/static/", http.StrinPrefix("/static/", fs))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.ListenAndServe(":3001", nil)
 	fmt.Println("got here")
 }
