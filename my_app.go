@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"net/http"
 	"os"
 )
@@ -23,7 +23,7 @@ func port() string {
 	}
 	return ":" + port
 }
-
+/*
 func (r Registration) ToJSON() string {
         jsonbytes, err := json.Marshal(r)
         if err != nil {
@@ -31,7 +31,7 @@ func (r Registration) ToJSON() string {
         }
         return string(jsonbytes)
 }
-
+*/
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	/*
         if r.Method == http.MethodPost {
