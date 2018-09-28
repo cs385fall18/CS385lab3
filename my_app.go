@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	//"io"
 )
 
 func main() {
@@ -39,7 +40,17 @@ func (r Registration) ToJSON() string {
 */
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("doesn't print")
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+	//fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+	name, err := os.Hostname()
+	//resp, err := http.PostForm("http://example.com/form",
+	//url.Values{"key": {"Value"}, "id": {"123"}})
+
+	//fmt.Println("", name)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(name))
+	if err != nil {
+        panic(err)
+    }
 	/*
         if r.Method == http.MethodPost {
                 body, err := ioutil.ReadAll(r.Body)
@@ -79,3 +90,4 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
         }
 	*/
 }
+
