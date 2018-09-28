@@ -58,7 +58,7 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
                                         w.Write([]byte("Unable to register new account"))
                                 } else {
                                         last_id, _ := res.LastInsertId()
-                                        w.Write([]byte(fmt.Sprintf("Successfully registered account %s", string$
+                                        w.Write([]byte(fmt.Sprintf("Successfully registered account %s", string(last_id))))
                                 }
                         } else {
                                 w.WriteHeader(http.StatusBadRequest)
