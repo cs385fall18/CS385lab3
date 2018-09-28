@@ -11,9 +11,13 @@ func main() {
 	//dbConn := fmt.Sprintf("minibank:minibank@tcp(mysql)/minibank")
 	//models.InitDB(dbConn)
 	fmt.Println("Hello World")
-	http.HandleFunc("/api/account/register", RegisterHandler)
+	http.HandleFunc("/", RegisterHandler)
 
-	http.ListenAndServe(port(), nil)
+	//http.ListenAndServe(port(), nil)
+	fs := http.FileServer(http.Dir("static/"))
+	http.Handle("/static/", http.StrinPrefix("/static/", fs))
+	http.ListenAndServe(":3001", nil)
+	fmt.Println("got here")
 }
 
 func port() string {
@@ -33,7 +37,7 @@ func (r Registration) ToJSON() string {
 }
 */
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Hello World")
+	fmt.Println("doesn't print")
 	/*
         if r.Method == http.MethodPost {
                 body, err := ioutil.ReadAll(r.Body)
