@@ -14,7 +14,7 @@ func main() {
 	//models.InitDB(dbConn)
 	//fmt.Println("Hello World")
 	http.HandleFunc("/", RegisterHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":80", nil))
 	//http.ListenAndServe(port(), nil)
 	//fs := http.FileServer(http.Dir("static/"))
 	//http.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -22,13 +22,7 @@ func main() {
 	//fmt.Println("got here")
 }
 
-func port() string {
-	port := os.Getenv("PORT")
-	if len(port) == 0 {
-		port = "8080"
-	}
-	return ":" + port
-}
+
 /*
 func (r Registration) ToJSON() string {
         jsonbytes, err := json.Marshal(r)
@@ -45,9 +39,11 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	//resp, err := http.PostForm("http://example.com/form",
 	//url.Values{"key": {"Value"}, "id": {"123"}})
 
+
 	//fmt.Println("", name)
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(name))
+
 	if err != nil {
         panic(err)
     }
