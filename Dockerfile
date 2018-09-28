@@ -4,6 +4,6 @@ WORKDIR /go
 
 COPY * /go/src/
 
-RUN go get my_app
+RUN go get My_app
 
 CMD ["./bin/my_app"]
