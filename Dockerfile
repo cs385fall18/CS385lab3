@@ -4,6 +4,6 @@ WORKDIR /go
 
 COPY * /go/src/
 
-RUN go get My_app
+RUN go get github.com/dtauraso/CS385lab3
 
 CMD ["./bin/my_app"]
