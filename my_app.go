@@ -47,15 +47,12 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
                 } else {
                         strlength := len(registration.Password)
                         if strlength >= 10 {
-                                hashedpw, err := bcrypt.GenerateFromPassword([]byte(registration.Password), bcr$
+                                hashedpw, err := bcrypt.GenerateFromPassword([]byte(registration.Password), bcrypt.DefaultCost)
                                 if err != nil {
                                         w.WriteHeader(http.StatusInternalServerError)
                                         w.Write([]byte("Unable to process request."))
                                 }
-                                res, err := models.Database.Exec("INSERT INTO account(username, password, times$
-                                        registration.Username,
-                                        hashedpw,
-                                        time.Now().UnixNano()/1000000)
+
 				if err != nil {
                                         w.WriteHeader(http.StatusInternalServerError)
                                         w.Write([]byte("Unable to register new account"))
