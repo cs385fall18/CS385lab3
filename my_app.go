@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"fmt"
+	"fmt"
 	"net/http"
 	"os"
 )
@@ -10,7 +10,7 @@ func main() {
 	// Connect to the database
 	//dbConn := fmt.Sprintf("minibank:minibank@tcp(mysql)/minibank")
 	//models.InitDB(dbConn)
-	
+	fmt.Println("Hello World")
 	http.HandleFunc("/api/account/register", RegisterHandler)
 
 	http.ListenAndServe(port(), nil)
@@ -33,6 +33,7 @@ func (r Registration) ToJSON() string {
 }
 */
 func RegisterHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Hello World")
 	/*
         if r.Method == http.MethodPost {
                 body, err := ioutil.ReadAll(r.Body)
